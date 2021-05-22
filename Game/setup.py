@@ -6,10 +6,10 @@ import time
 from pygame.locals import *
 
 from .initialise import initialise as board
-from.referee import environment as env
+from .referee import environment as env
 from .constants import const
 from .AI import minimax as DEFAULT
-from.SubProcesser import MASTER as master_AI
+from .SubProcesser import MASTER as master_AI
 
 AI = [False, False]
 cs = const()
