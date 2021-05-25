@@ -8,12 +8,12 @@ run it
 congrats...
 
 # Requirements
-it needs `Python3` and 2 modules namely - `pygame`, `subprocess`
+it needs `Python3` and 2 modules namely - `pygame`, `cython`
 
 # First time setup
 open you command shell and run following command<br/>
 `pip install pygame`<br/>
-`pip install subprocess`<br/>
+`pip install cython`<br/>
 `git clone https://github.com/Jrkej/Connect-4.git`<br/>
 `cd Connect-4`<br/>
 `python -u "connect4.py"`<br/>
