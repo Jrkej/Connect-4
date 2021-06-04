@@ -9,24 +9,6 @@ DIRECTIONS = [[1, 0], [1, 1], [1, -1], [0, 1], [0, -1], [-1, 1], [-1, 0], [-1,-1
 class environment:
     def __init__(self):
         self.board = [0 for i in range(cs.WIDTH * cs.HEIGHT)]
-    
-    def Line(self, x, y, id):
-        line = -1
-        LINEMARK = []
-        for d in DIRECTIONS:
-            thisLine = 1
-            thismark = [[x, y]]
-            a = x + d[0]
-            b = y + d[1]
-            while a < cs.WIDTH and a > -1 and b < cs.HEIGHT and b > -1 and self.board[(b * cs.WIDTH) + a] == id:
-                thisLine += 1
-                thismark.append([a, b])
-                a += d[0]
-                b += d[1]
-            if thisLine > line:
-                line = thisLine
-                LINEMARK = copy.deepcopy(thismark)
-        return LINEMARK
 
     def lineLenght(self, x, y, id):
         line = -1
