@@ -2,6 +2,7 @@ import copy
 import time
 import cython
 
+# Game board, rules, moves and other functions setup.
 WIDTH = 7
 HEIGHT = 6
 TIMES = 4
@@ -13,7 +14,8 @@ WEIGHT_LENGHT = 2
 WEIGHT_PLACE = 2
 TT = {}
 
-def lineLenght(board, x, y, id):#getting lenght of line
+# Getting the length of line.
+def lineLenght(board, x, y, id):
     line = -1
     for d in DIRECTIONS:
         thisLine = 1
@@ -27,7 +29,8 @@ def lineLenght(board, x, y, id):#getting lenght of line
             line = thisLine
     return line
         
-                    
+     
+# Checking for the winner on every move.
 def winner(board, id):#If game ended means if someone won
     for x in range(WIDTH):
         for y in range(HEIGHT):
@@ -35,12 +38,14 @@ def winner(board, id):#If game ended means if someone won
                 if lineLenght(board, x, y, id) >= TIMES:return True
     return False
 
-def valids(board):#Valid moves
+# Getting valid moves.
+def valids(board):
     a = [move for move in range(WIDTH) if board[move] == 0]
     a.sort(key = lambda a: abs(WIDTH // 2 - a))
     return a
 
-def value(board, id):#Evaluating
+# Evaluating value using minimax algo.
+def value(board, id)
     val = 0
     for x in range(WIDTH):
         for y in range(HEIGHT):
@@ -49,7 +54,8 @@ def value(board, id):#Evaluating
                 val += (WIDTH - (abs(WIDTH // 2 - x))) * WEIGHT_PLACE * (1 if board[(y*WIDTH)+x] == id else -1)
     return val
 
-def play(board, m, id):#Playing the move
+# Playing the move.
+def play(board, m, id):
     for y in range(HEIGHT):
         if board[(y*WIDTH)+m] != 0:
             board[((y-1)*WIDTH)+m] = id
@@ -57,7 +63,8 @@ def play(board, m, id):#Playing the move
         if y == HEIGHT - 1:
             board[(y*WIDTH)+m] = id
 
-def minimax(board, depth, id, beta, root):#MiniMax
+# Main Minimax algo. implementation.
+def minimax(board, depth, id, beta, root):
     global TT
     if depth == 0:
         return value(board, id)

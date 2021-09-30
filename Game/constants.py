@@ -1,5 +1,6 @@
 import os
 
+# Game Window setup.
 class const():
     def __init__(self):
         self.directory = os.path.dirname(__file__)

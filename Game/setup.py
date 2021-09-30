@@ -1,3 +1,4 @@
+# Complete game setup using the PyGame Lib.
 import pygame
 import os
 import sys
